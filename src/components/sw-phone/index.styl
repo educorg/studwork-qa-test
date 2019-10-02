@@ -1,0 +1,151 @@
+.sw-phone
+  display flex
+  align-items stretch
+  border 1px solid #ddd
+  border-radius 5px
+  height 36px
+  max-width 300px
+  background-color #fff
+  transition border-color ease-out 0.25s
+
+  &.expanded
+    max-width none
+
+  &.focus
+    border-color #ffa726
+
+  &.opened
+    border-bottom-left-radius 0
+
+  .invalid &
+    border-color #e84c3d
+
+  &.disabled
+    background-color #ddd
+
+    &-country
+      cursor default
+
+      &__flag
+        opacity 0.5
+
+      &__dropdown-icon
+        color #bec3c7
+
+    &-country-code
+      &__input
+        color #757575
+
+  &-country
+    flex 1
+    min-width 50px
+    max-width 50px
+    position relative
+    cursor pointer
+
+    &__flag
+      position absolute
+      left 0
+      right 0
+      top 0
+      bottom 0
+      padding 5px
+
+      .present
+        width 25px
+        height 25px
+
+      .empty
+        display inline-block
+        width 25px
+        height 25px
+        line-height 26px
+        text-align center
+        border-radius 26px
+        background #bec3c7
+
+    &__code
+      display inline-flex
+      width 50px
+      justify-content flex-end
+      padding 0 7px
+
+    &__title
+      display inline-flex
+      padding 0 10px
+
+    &__dropdown
+      position absolute
+      top 100%
+      left -1px
+      margin-top 1px
+      z-index 100
+      overflow auto
+      -webkit-overflow-scrolling touch
+      max-height 400px
+      width 250px
+      border 1px solid #ffa726
+      border-top 0
+      border-radius 0 0 5px 5px
+      background #fff
+
+      &-item
+        position relative
+        display flex
+        padding 5px 10px 5px 50px
+        cursor pointer
+        overflow hidden
+        user-select none
+
+        &:hover
+          background #f8f8f8
+
+        &.active
+          background #f8f8f8
+          font-weight bold
+          cursor default
+
+    &__dropdown-icon
+      position absolute
+      right 5px
+      top 50%
+      line-height 1
+      transform translateY(-50%)
+
+    &__native
+      min-width 60px
+      max-width 60px
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      opacity 0
+      z-index 1
+      border none
+      outline none
+
+  &-country-code
+    flex 1
+    min-width 50px
+    padding 4px 7px
+    border-left 1px solid #ddd
+    text-align right
+    color #757575
+    cursor default
+
+  &-number
+    flex 10
+    border-left 1px solid #ddd
+
+    input
+      width 100%
+      border none
+      outline none
+      padding 4px 10px
+
+      &[disabled]
+        background transparent
+
+  @media $max-md
+    height 39px
